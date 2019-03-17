@@ -4,18 +4,23 @@
 #
 Name     : R-varImp
 Version  : 0.2
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Summary  : RF Variable Importance for Arbitrary Measures
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-TH.data
-Requires: R-measures
-Requires: R-party
+Requires: R-assertthat
+Requires: R-cli
+Requires: R-libcoin
+Requires: R-withr
 BuildRequires : R-TH.data
+BuildRequires : R-assertthat
+BuildRequires : R-cli
+BuildRequires : R-libcoin
 BuildRequires : R-measures
 BuildRequires : R-party
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -30,11 +35,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533752080
+export SOURCE_DATE_EPOCH=1552841101
 
 %install
+export SOURCE_DATE_EPOCH=1552841101
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1533752080
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -69,8 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library varImp|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  varImp || :
 
 
 %files
@@ -94,3 +98,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/varImp/help/varImp.rdx
 /usr/lib64/R/library/varImp/html/00Index.html
 /usr/lib64/R/library/varImp/html/R.css
+/usr/lib64/R/library/varImp/tests/testthat.R
+/usr/lib64/R/library/varImp/tests/testthat/test_base.R

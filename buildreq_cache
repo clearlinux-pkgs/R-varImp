@@ -1,4 +1,8 @@
 0.2
-R-party
 R-TH.data
+R-assertthat
+R-cli
+R-libcoin
 R-measures
+R-party
+R-withr
