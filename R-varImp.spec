@@ -4,16 +4,12 @@
 #
 Name     : R-varImp
 Version  : 0.2
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Summary  : RF Variable Importance for Arbitrary Measures
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-assertthat
-Requires: R-cli
-Requires: R-libcoin
-Requires: R-withr
 BuildRequires : R-TH.data
 BuildRequires : R-assertthat
 BuildRequires : R-cli
@@ -35,10 +31,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552841101
+export SOURCE_DATE_EPOCH=1552873809
 
 %install
-export SOURCE_DATE_EPOCH=1552841101
+export SOURCE_DATE_EPOCH=1552873809
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
