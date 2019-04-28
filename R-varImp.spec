@@ -4,7 +4,7 @@
 #
 Name     : R-varImp
 Version  : 0.2
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/varImp_0.2.tar.gz
 Summary  : RF Variable Importance for Arbitrary Measures
