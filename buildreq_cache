@@ -1,12 +1,14 @@
-0.2
+0.3
 R-TH.data
 R-assertthat
 R-cli
 R-coin
 R-libcoin
 R-measures
+R-modeltools
 R-mvtnorm
 R-party
+R-ranger
 R-sandwich
 R-strucchange
 R-withr
