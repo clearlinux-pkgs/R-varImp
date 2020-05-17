@@ -4,34 +4,16 @@
 #
 Name     : R-varImp
 Version  : 0.3
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/varImp_0.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/varImp_0.3.tar.gz
 Summary  : RF Variable Importance for Arbitrary Measures
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-TH.data
-Requires: R-coin
-Requires: R-libcoin
 Requires: R-measures
-Requires: R-modeltools
-Requires: R-mvtnorm
 Requires: R-party
-Requires: R-ranger
-Requires: R-sandwich
-Requires: R-strucchange
-Requires: R-zoo
-BuildRequires : R-TH.data
-BuildRequires : R-coin
-BuildRequires : R-libcoin
 BuildRequires : R-measures
-BuildRequires : R-modeltools
-BuildRequires : R-mvtnorm
 BuildRequires : R-party
-BuildRequires : R-ranger
-BuildRequires : R-sandwich
-BuildRequires : R-strucchange
-BuildRequires : R-zoo
 BuildRequires : buildreq-R
 
 %description
@@ -40,21 +22,22 @@ Random forest variable importance for arbitrary measures of the [measures](https
 
 %prep
 %setup -q -c -n varImp
+cd %{_builddir}/varImp
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556905752
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1589752080
 
 %install
-export SOURCE_DATE_EPOCH=1556905752
+export SOURCE_DATE_EPOCH=1589752080
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -80,7 +63,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
